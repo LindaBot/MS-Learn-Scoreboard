@@ -66,7 +66,8 @@ namespace MS_Learn_Scoreboard.Controllers
                 LastName = student.LastName,
                 School = student.School,
                 Username = student.Username,
-                StartDate = DateTime.Now,
+                Email = student.Email,
+                CreateDate = DateTime.Now,
                 Score = MicrosoftLearnUtil.GetXP(student.Username)
             };
 

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard.csproj": {}
+    "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\test\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard.csproj": {}
   },
   "projects": {
-    "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard.csproj": {
+    "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\test\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard.csproj",
+        "projectUniqueName": "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\test\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard.csproj",
         "projectName": "MS-Learn-Scoreboard",
-        "projectPath": "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard.csproj",
+        "projectPath": "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\test\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard.csproj",
         "packagesPath": "C:\\Users\\wsydg\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\obj\\",
+        "outputPath": "C:\\Users\\wsydg\\Desktop\\Code\\MS-Learn-Scoreboard\\test\\MS-Learn-Scoreboard\\MS-Learn-Scoreboard\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

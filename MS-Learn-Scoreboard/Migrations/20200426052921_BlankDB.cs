@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace MS_Learn_Scoreboard.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class BlankDB : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,8 +16,9 @@ namespace MS_Learn_Scoreboard.Migrations
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Username = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true),
                     School = table.Column<string>(nullable: true),
-                    StartDate = table.Column<DateTime>(nullable: false),
+                    CreateDate = table.Column<DateTime>(nullable: false),
                     Score = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
