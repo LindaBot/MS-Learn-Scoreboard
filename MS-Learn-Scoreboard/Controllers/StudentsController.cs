@@ -28,6 +28,13 @@ namespace MS_Learn_Scoreboard.Controllers
             return await _context.Student.ToListAsync();
         }
 
+        // GET: api/Students
+        [HttpGet("findTop/{topNum}")]
+        public async Task<ActionResult<IEnumerable<Student>>> GetTopStudent(int topNum)
+        {
+            return await _context.Student.OrderByDescending(s => s.Score).Take(topNum).ToListAsync();
+        }
+
         // GET: api/Students/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Student>> GetStudent(int id)
@@ -40,38 +47,6 @@ namespace MS_Learn_Scoreboard.Controllers
             }
 
             return student;
-        }
-
-        // PUT: api/Students/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for
-        // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
-        [HttpPut("{id}")]
-        public async Task<IActionResult> PutStudent(int id, Student student)
-        {
-            if (id != student.Id)
-            {
-                return BadRequest();
-            }
-
-            _context.Entry(student).State = EntityState.Modified;
-
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!StudentExists(id))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
-
-            return NoContent();
         }
 
         // POST: api/Students
@@ -95,22 +70,6 @@ namespace MS_Learn_Scoreboard.Controllers
 
 
             return CreatedAtAction("GetStudent", new { id = newStudent.Id }, student);
-        }
-
-        // DELETE: api/Students/5
-        [HttpDelete("{id}")]
-        public async Task<ActionResult<Student>> DeleteStudent(int id)
-        {
-            var student = await _context.Student.FindAsync(id);
-            if (student == null)
-            {
-                return NotFound();
-            }
-
-            _context.Student.Remove(student);
-            await _context.SaveChangesAsync();
-
-            return student;
         }
 
         private bool StudentExists(int id)
