@@ -31,7 +31,13 @@ namespace MS_Learn_Scoreboard.Migrations
                     b.Property<string>("School")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Score")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("StartDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Username")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

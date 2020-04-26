@@ -78,12 +78,23 @@ namespace MS_Learn_Scoreboard.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<Student>> PostStudent(Student student)
+        public async Task<ActionResult<Student>> PostStudent(NewStudent student)
         {
-            _context.Student.Add(student);
+            Student newStudent = new Student
+            {
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                School = student.School,
+                Username = student.Username,
+                StartDate = DateTime.Now,
+                Score = 0
+            };
+
+            _context.Student.Add(newStudent);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetStudent", new { id = student.Id }, student);
+
+            return CreatedAtAction("GetStudent", new { id = newStudent.Id }, student);
         }
 
         // DELETE: api/Students/5

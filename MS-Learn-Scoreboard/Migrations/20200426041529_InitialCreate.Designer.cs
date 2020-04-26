@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MS_Learn_Scoreboard.Migrations
 {
     [DbContext(typeof(MS_Learn_ScoreboardContext))]
-    [Migration("20200426035053_InitialCreate")]
+    [Migration("20200426041529_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -33,7 +33,13 @@ namespace MS_Learn_Scoreboard.Migrations
                     b.Property<string>("School")
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("Score")
+                        .HasColumnType("INTEGER");
+
                     b.Property<DateTime>("StartDate")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Username")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");
