@@ -77,6 +77,17 @@ namespace MS_Learn_Scoreboard.Controllers
             return CreatedAtAction("GetStudent", new { id = newStudent.Id }, newStudent);
         }
 
+        [HttpGet("updateAll")]
+        public async void UpdateStudent()
+        {
+            List<Student> students = await _context.Student.ToListAsync();
+            foreach (Student student in students) 
+            {
+                student.Score = MicrosoftLearnUtil.GetXP(student.Username);
+            }
+            await _context.SaveChangesAsync();
+        }
+
         private bool StudentExists(string studentUsername)
         {
             return _context.Student.Any(e => e.Username == studentUsername);
