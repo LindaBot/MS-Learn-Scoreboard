@@ -55,6 +55,11 @@ namespace MS_Learn_Scoreboard.Controllers
         [HttpPost]
         public async Task<ActionResult<Student>> PostStudent(NewStudent student)
         {
+            if (StudentExists(student.Username)) 
+            {
+                return BadRequest("Student already exists in the database");
+            }
+
             Student newStudent = new Student
             {
                 FirstName = student.FirstName,
@@ -69,12 +74,12 @@ namespace MS_Learn_Scoreboard.Controllers
             await _context.SaveChangesAsync();
 
 
-            return CreatedAtAction("GetStudent", new { id = newStudent.Id }, student);
+            return CreatedAtAction("GetStudent", new { id = newStudent.Id }, newStudent);
         }
 
-        private bool StudentExists(int id)
+        private bool StudentExists(string studentUsername)
         {
-            return _context.Student.Any(e => e.Id == id);
+            return _context.Student.Any(e => e.Username == studentUsername);
         }
     }
 }
