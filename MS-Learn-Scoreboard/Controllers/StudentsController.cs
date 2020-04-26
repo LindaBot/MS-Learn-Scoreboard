@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -60,22 +61,30 @@ namespace MS_Learn_Scoreboard.Controllers
                 return BadRequest("Student already exists in the database");
             }
 
-            Student newStudent = new Student
+            try
             {
-                FirstName = student.FirstName,
-                LastName = student.LastName,
-                School = student.School,
-                Username = student.Username,
-                Email = student.Email,
-                CreateDate = DateTime.Now,
-                Score = MicrosoftLearnUtil.GetXP(student.Username)
-            };
+                Student newStudent = new Student
+                {
+                    FirstName = student.FirstName,
+                    LastName = student.LastName,
+                    School = student.School,
+                    Username = student.Username,
+                    Email = student.Email,
+                    CreateDate = DateTime.Now,
+                    Score = MicrosoftLearnUtil.GetXP(student.Username)
+                };
 
-            _context.Student.Add(newStudent);
-            await _context.SaveChangesAsync();
+                _context.Student.Add(newStudent);
+                await _context.SaveChangesAsync();
 
+                return CreatedAtAction("GetStudent", new { id = newStudent.Id }, newStudent);
+            }
+            catch (WebException) 
+            {
+                return BadRequest("Unable to find user, please check the username");
+            }
 
-            return CreatedAtAction("GetStudent", new { id = newStudent.Id }, newStudent);
+            
         }
 
         [HttpGet("updateAll")]
