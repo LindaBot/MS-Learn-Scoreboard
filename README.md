@@ -1,4 +1,5 @@
 # MS-Learn-Scoreboard
+An API to track users' Microsoft Learn Experience Point
 
 ## Build:
 * Open sln in Visual Studio 2019 with Web Development installed
