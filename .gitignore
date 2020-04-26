@@ -1,2 +1,4 @@
 Scoreboard.*
 .vs
+bin/
+obj/
