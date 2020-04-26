@@ -87,7 +87,7 @@ namespace MS_Learn_Scoreboard.Controllers
                 School = student.School,
                 Username = student.Username,
                 StartDate = DateTime.Now,
-                Score = 0
+                Score = MicrosoftLearnUtil.GetXP(student.Username)
             };
 
             _context.Student.Add(newStudent);
