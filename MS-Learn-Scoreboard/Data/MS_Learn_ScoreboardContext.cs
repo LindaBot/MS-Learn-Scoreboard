@@ -9,6 +9,7 @@ namespace MS_Learn_Scoreboard.Data
 {
     public class MS_Learn_ScoreboardContext : DbContext
     {
+
         public MS_Learn_ScoreboardContext (DbContextOptions<MS_Learn_ScoreboardContext> options)
             : base(options)
         {

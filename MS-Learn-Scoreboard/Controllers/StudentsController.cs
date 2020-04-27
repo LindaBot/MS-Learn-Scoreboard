@@ -26,11 +26,11 @@ namespace MS_Learn_Scoreboard.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Student>>> GetStudent()
         {
-            return await _context.Student.ToListAsync();
+            return await _context.Student.OrderByDescending(s => s.Score).ToListAsync();
         }
 
-        // GET: api/Students
-        [HttpGet("findTop/{topNum}")]
+        // GET: api/Students/top/{topNum}
+        [HttpGet("top/{topNum}")]
         public async Task<ActionResult<IEnumerable<Student>>> GetTopStudent(int topNum)
         {
             return await _context.Student.OrderByDescending(s => s.Score).Take(topNum).ToListAsync();
