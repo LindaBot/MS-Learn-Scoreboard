@@ -56,10 +56,10 @@ namespace MS_Learn_Scoreboard.Controllers
         [HttpPost]
         public async Task<ActionResult<Student>> PostStudent(NewStudent student)
         {
-            if (StudentExists(student.Username)) 
-            {
-                return BadRequest("Student already exists in the database");
-            }
+            // if (StudentExists(student.Username)) 
+            // {
+            //     return BadRequest("Student already exists in the database");
+            // }
 
             try
             {
