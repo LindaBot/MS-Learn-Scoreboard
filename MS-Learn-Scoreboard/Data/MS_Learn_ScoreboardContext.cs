@@ -16,5 +16,7 @@ namespace MS_Learn_Scoreboard.Data
         }
 
         public DbSet<MS_Learn_Scoreboard.Models.Student> Student { get; set; }
+
+        public DbSet<MS_Learn_Scoreboard.Models.Debug> Debug { get; set; }
     }
 }

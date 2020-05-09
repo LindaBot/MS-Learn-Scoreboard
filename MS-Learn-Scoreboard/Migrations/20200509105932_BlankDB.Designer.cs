@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MS_Learn_Scoreboard.Migrations
 {
     [DbContext(typeof(MS_Learn_ScoreboardContext))]
-    [Migration("20200509065549_BlankDB")]
+    [Migration("20200509105932_BlankDB")]
     partial class BlankDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,6 +17,26 @@ namespace MS_Learn_Scoreboard.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3");
+
+            modelBuilder.Entity("MS_Learn_Scoreboard.Models.Debug", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("EndTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EventName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Debug");
+                });
 
             modelBuilder.Entity("MS_Learn_Scoreboard.Models.Student", b =>
                 {

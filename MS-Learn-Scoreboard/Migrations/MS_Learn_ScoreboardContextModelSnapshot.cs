@@ -16,6 +16,26 @@ namespace MS_Learn_Scoreboard.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "3.1.3");
 
+            modelBuilder.Entity("MS_Learn_Scoreboard.Models.Debug", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime?>("EndTime")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("EventName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("StartTime")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Debug");
+                });
+
             modelBuilder.Entity("MS_Learn_Scoreboard.Models.Student", b =>
                 {
                     b.Property<int>("Id")

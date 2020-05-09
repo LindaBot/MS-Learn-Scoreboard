@@ -60,7 +60,6 @@ namespace MS_Learn_Scoreboard.Controllers
             // {
             //     return BadRequest("Student already exists in the database");
             // }
-
             try
             {
                 string userId = MicrosoftLearnUtil.GetUserId(student.Username);
@@ -92,14 +91,28 @@ namespace MS_Learn_Scoreboard.Controllers
         [HttpGet("updateAll")]
         public async void UpdateStudent()
         {
-            System.Diagnostics.Debug.WriteLine("test");
-            List <Student> students = await _context.Student.ToListAsync();
-            foreach (Student student in students) 
+            // Create Debug Item
+            Debug debug = new Debug
             {
-                student.Score = MicrosoftLearnUtil.GetXP(student.Username);
-                System.Diagnostics.Debug.WriteLine(student.Id);
+                EventName = "Update",
+                StartTime = DateTime.Now
+            };
+
+            try
+            {
+                // Update students
+                List<Student> students = await _context.Student.ToListAsync();
+                foreach (Student student in students)
+                {
+                    student.Score = MicrosoftLearnUtil.GetXP(student.Username);
+                }
             }
-            await _context.SaveChangesAsync();
+            finally 
+            {
+                debug.EndTime = DateTime.Now;
+                _context.Debug.Add(debug);
+                await _context.SaveChangesAsync();
+            }
         }
 
         private bool StudentExists(string studentUsername)
