@@ -104,7 +104,7 @@ namespace MS_Learn_Scoreboard.Controllers
             {
                 foreach (Student student in students)
                 {
-                    student.Score = MicrosoftLearnUtil.GetXP(student.Username);
+                    student.Score = MicrosoftLearnUtil.GetXP(student.UserId);
                 }
             }
             catch (Exception e) 
