@@ -63,6 +63,7 @@ namespace MS_Learn_Scoreboard.Controllers
 
             try
             {
+                string userId = MicrosoftLearnUtil.GetUserId(student.Username);
                 Student newStudent = new Student
                 {
                     FirstName = student.FirstName,
@@ -71,7 +72,8 @@ namespace MS_Learn_Scoreboard.Controllers
                     Username = student.Username,
                     Email = student.Email,
                     CreateDate = DateTime.Now,
-                    Score = MicrosoftLearnUtil.GetXP(student.Username)
+                    UserId = userId,
+                    Score = MicrosoftLearnUtil.GetXP(userId)
                 };
 
                 _context.Student.Add(newStudent);
@@ -90,10 +92,12 @@ namespace MS_Learn_Scoreboard.Controllers
         [HttpGet("updateAll")]
         public async void UpdateStudent()
         {
-            List<Student> students = await _context.Student.ToListAsync();
+            System.Diagnostics.Debug.WriteLine("test");
+            List <Student> students = await _context.Student.ToListAsync();
             foreach (Student student in students) 
             {
                 student.Score = MicrosoftLearnUtil.GetXP(student.Username);
+                System.Diagnostics.Debug.WriteLine(student.Id);
             }
             await _context.SaveChangesAsync();
         }

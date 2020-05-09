@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MS_Learn_Scoreboard.Migrations
 {
     [DbContext(typeof(MS_Learn_ScoreboardContext))]
-    [Migration("20200426052921_BlankDB")]
+    [Migration("20200509065549_BlankDB")]
     partial class BlankDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -41,6 +41,9 @@ namespace MS_Learn_Scoreboard.Migrations
 
                     b.Property<int>("Score")
                         .HasColumnType("INTEGER");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("Username")
                         .HasColumnType("TEXT");

@@ -16,6 +16,7 @@ namespace MS_Learn_Scoreboard.Migrations
                     FirstName = table.Column<string>(nullable: true),
                     LastName = table.Column<string>(nullable: true),
                     Username = table.Column<string>(nullable: true),
+                    UserId = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     School = table.Column<string>(nullable: true),
                     CreateDate = table.Column<DateTime>(nullable: false),

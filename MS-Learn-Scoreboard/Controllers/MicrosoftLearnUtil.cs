@@ -9,6 +9,16 @@ namespace MS_Learn_Scoreboard.Controllers
 {
     public class MicrosoftLearnUtil
     {
+        public static string GetUserId(string username)
+        {
+            using (WebClient webClient = new WebClient())
+            {
+                string userInfoString = webClient.DownloadString("https://docs.microsoft.com/api/profiles/" + username);
+                dynamic userInfo = JsonConvert.DeserializeObject<dynamic>(userInfoString);
+                return userInfo.userId;
+            }
+        }
+
         public static int GetXP(string username) 
         {
             using (WebClient webClient = new WebClient()) {
