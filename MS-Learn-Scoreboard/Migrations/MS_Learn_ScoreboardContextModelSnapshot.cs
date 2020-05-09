@@ -28,6 +28,9 @@ namespace MS_Learn_Scoreboard.Migrations
                     b.Property<string>("EventName")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Exception")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("StartTime")
                         .HasColumnType("TEXT");
 

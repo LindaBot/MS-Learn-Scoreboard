@@ -91,23 +91,27 @@ namespace MS_Learn_Scoreboard.Controllers
         [HttpGet("updateAll")]
         public async void UpdateStudent()
         {
-            // Create Debug Item
+            List<Student> students = await _context.Student.ToListAsync();
+
+            // Create Debug Item to record event time
             Debug debug = new Debug
             {
-                EventName = "Update",
+                EventName = "Update XP points for " + students.Count.ToString() + " students",
                 StartTime = DateTime.Now
             };
 
             try
             {
-                // Update students
-                List<Student> students = await _context.Student.ToListAsync();
                 foreach (Student student in students)
                 {
                     student.Score = MicrosoftLearnUtil.GetXP(student.Username);
                 }
             }
-            finally 
+            catch (Exception e) 
+            {
+                debug.Exception = e.ToString();
+            }
+            finally
             {
                 debug.EndTime = DateTime.Now;
                 _context.Debug.Add(debug);

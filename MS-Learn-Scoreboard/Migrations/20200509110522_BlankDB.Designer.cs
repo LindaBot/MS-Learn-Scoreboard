@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MS_Learn_Scoreboard.Migrations
 {
     [DbContext(typeof(MS_Learn_ScoreboardContext))]
-    [Migration("20200509105932_BlankDB")]
+    [Migration("20200509110522_BlankDB")]
     partial class BlankDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -28,6 +28,9 @@ namespace MS_Learn_Scoreboard.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EventName")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Exception")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("StartTime")

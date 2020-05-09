@@ -15,7 +15,8 @@ namespace MS_Learn_Scoreboard.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     EventName = table.Column<string>(nullable: true),
                     StartTime = table.Column<DateTime>(nullable: false),
-                    EndTime = table.Column<DateTime>(nullable: true)
+                    EndTime = table.Column<DateTime>(nullable: true),
+                    Exception = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
