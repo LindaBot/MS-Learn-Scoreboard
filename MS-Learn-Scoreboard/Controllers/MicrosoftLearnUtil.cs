@@ -19,13 +19,9 @@ namespace MS_Learn_Scoreboard.Controllers
             }
         }
 
-        public static int GetXP(string username) 
+        public static int GetXP(string userId) 
         {
             using (WebClient webClient = new WebClient()) {
-                string userInfoString = webClient.DownloadString("https://docs.microsoft.com/api/profiles/" + username);
-                dynamic userInfo = JsonConvert.DeserializeObject<dynamic>(userInfoString);
-                string userId = userInfo.userId;
-
                 string userStatusString = webClient.DownloadString("https://docs.microsoft.com/api/gamestatus/" + userId);
                 dynamic userStatus = JsonConvert.DeserializeObject<dynamic>(userStatusString);
                 string totalPoints = userStatus.totalPoints;
